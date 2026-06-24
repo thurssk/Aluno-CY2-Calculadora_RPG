@@ -25,3 +25,56 @@ let totalConstituicao = document.getElementById('conTotal');
 let totalInteligencia = document.getElementById('intTotal');
 let totalSabedoria = document.getElementById('sabTotal');
 let totalCarisma = document.getElementById('carTotal');
+function gerarNumeroAleatorio() {
+    let array_numeros_aleatorios = [];
+
+    for (let i = 0; i < 4; i++) {
+        array_numeros_aleatorios[i] = Math.floor(20*Math.random() + 1);
+    }
+    return array_numeros_aleatorios;
+}
+
+function camposD20() {
+    numeros_D20 = gerarNumeroAleatorio();
+
+    forD20.value = numeros_D20[0];
+    desD20.value = numeros_D20[1];
+    conD20.value = numeros_D20[2];
+    intD20.value = numeros_D20[3];
+    sabD20.value = numeros_D20[4];
+    carD20.value = numeros_D20[5];
+
+    modificador(numeros_d20);
+
+}
+
+function modificador(numeros_d20) {
+    numeros_d20 = numeros_aleatorios;
+    let mod = [];
+
+    for (let i = 0; i < 6; i++) {
+        valor = numeros_d20[i];
+        if (valor <= 15) {
+            mod[i] = math.round(1 + (valor / 1.2));
+        } else if (valor > 7) {
+            mod[i] = (o + (valor / 1.2).toFixed(0));
+        }  else {
+            mod[i] = math.round(-1 + (valor / 1.2));
+        }
+    }
+    forMod.value = mod[0];
+    desMod.value = mod[1];
+    conMod.value = mod[2];
+    intMod.value = mod[3];
+    sabMod.value = mod[4];
+    carMod.value = mod[5];
+}
+
+function calcular() {
+    totalForca.value = Number(forca.value) + Number(forMod.value);
+    totalDestreza.value = Number(destreza.value) + Number(desMod.value);
+    totalConstituicao.value = Number(constituicao.value) + Number(conMod.value);
+    totalInteligencia.value = Number(inteligencia.value) + Number(intMod.value);
+    totalSabedoria.value = Number(sabedoria.value) + Number(sabMod.value);
+    totalCarisma.value = Number(carisma.value) + Number(carMod.value);
+}
