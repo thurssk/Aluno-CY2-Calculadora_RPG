@@ -78,3 +78,7 @@ function calcular() {
     totalSabedoria.value = Number(sabedoria.value) + Number(sabMod.value);
     totalCarisma.value = Number(carisma.value) + Number(carMod.value);
 }
+
+function recarregarPagina() {
+    window.location.reload(true);
+}
